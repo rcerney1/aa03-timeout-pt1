@@ -33,7 +33,10 @@ console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
 ***********************************************************************/
 
 function batchTimeouts(callbacks, delays) {
-  // Your code here 
+  // Your code here
+  if(!callbacks.length || !delays.length) return [];
+  setTimeout(callbacks[0], delays[0])
+  return batchTimeouts(callbacks.slice(1), delays.slice(1)); 
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
